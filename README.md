@@ -15,7 +15,7 @@ Une plateforme sans secrets est simplement ignorée : tu peux commencer avec You
 | `ANTHROPIC_API_KEY` | console.anthropic.com |
 | `DISCORD_WEBHOOK_URL` | Salon Discord → Modifier → Intégrations → Webhooks |
 | `YOUTUBE_API_KEY` | Google Cloud Console → activer *YouTube Data API v3* → Identifiants → Clé API |
-| `YOUTUBE_CHANNEL_ID` | YouTube Studio → Paramètres → Chaîne → Paramètres avancés (commence par `UC`) |
+| `YOUTUBE_CHANNEL_ID` | ton pseudo YouTube (ex. `@mickaz9`) ou l'ID de chaîne qui commence par `UC` |
 | `TWITCH_CLIENT_ID` / `TWITCH_CLIENT_SECRET` | dev.twitch.tv/console → Enregistrer une application |
 | `TWITCH_LOGIN` | ton pseudo Twitch |
 | `TIKTOK_CLIENT_KEY` / `TIKTOK_CLIENT_SECRET` | developers.tiktok.com → app avec *Login Kit*, scopes `user.info.basic`, `user.info.stats`, `video.list` |

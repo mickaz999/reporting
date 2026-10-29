@@ -13,8 +13,10 @@ def collect():
     if not (key and channel_id):
         return None
 
+    # Accepte l'ID de chaîne (UC…) ou le pseudo (@mickaz9).
+    lookup = {"forHandle": channel_id} if channel_id.startswith("@") else {"id": channel_id}
     ch = requests.get(f"{API}/channels", params={
-        "part": "statistics,contentDetails", "id": channel_id, "key": key,
+        "part": "statistics,contentDetails", "key": key, **lookup,
     }, timeout=30).json()["items"][0]
     stats = ch["statistics"]
     uploads = ch["contentDetails"]["relatedPlaylists"]["uploads"]
