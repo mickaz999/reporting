@@ -60,11 +60,20 @@ Plateformes en erreur : {json.dumps(errors, ensure_ascii=False) if errors else "
     return "".join(b.text for b in msg.content if b.type == "text")
 
 
+def send_maderino(title, text):
+    """Dépose le rapport comme page dans l'app maderino (dépôt mickaz999/Copy-app)."""
+    url, secret = os.getenv("MADERINO_URL"), os.getenv("MADERINO_REPORT_SECRET")
+    if not (url and secret):
+        return False
+    requests.post(f"{url.rstrip('/')}/api/report", json={"title": title, "markdown": text},
+                  headers={"Authorization": f"Bearer {secret}"}, timeout=30).raise_for_status()
+    return True
+
+
 def send_discord(text):
     url = os.getenv("DISCORD_WEBHOOK_URL")
     if not url:
-        print(text)
-        return
+        return False
     requests.post(url, json={
         "username": "Mickaz9 Reporting",
         "embeds": [{
@@ -73,6 +82,7 @@ def send_discord(text):
             "color": 0x9146FF,
         }],
     }, timeout=30).raise_for_status()
+    return True
 
 
 def main():
@@ -82,7 +92,11 @@ def main():
     if not stats:
         raise SystemExit("Aucune plateforme configurée : renseigne les secrets (voir README).")
     previous = history[-1]["stats"] if history else None
-    send_discord(summarize(stats, previous, errors))
+    report = summarize(stats, previous, errors)
+    sent_maderino = send_maderino(f"Rapport du {datetime.now():%d/%m/%Y}", report)
+    sent_discord = send_discord(report)
+    if not (sent_maderino or sent_discord):
+        print(report)
 
     history.append({"date": datetime.now(timezone.utc).isoformat(), "stats": stats})
     HISTORY.parent.mkdir(exist_ok=True)
