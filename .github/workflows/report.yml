@@ -2,7 +2,7 @@ name: Rapport hebdo Mickaz9
 
 on:
   schedule:
-    - cron: "17 8 * * 1"  # chaque lundi vers 9h/10h (heure de Paris)
+    - cron: "17 18 * * 0"  # chaque dimanche vers 19h/20h (heure de Paris)
   workflow_dispatch:
 
 permissions:

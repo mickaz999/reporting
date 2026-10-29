@@ -2,7 +2,7 @@
 import json
 import os
 import traceback
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import anthropic
@@ -31,11 +31,28 @@ def collect_all():
     return stats, errors
 
 
+def _parse_date(d):
+    if isinstance(d, (int, float)):  # TikTok renvoie un timestamp Unix
+        return datetime.fromtimestamp(d, timezone.utc)
+    return datetime.fromisoformat(d.replace("Z", "+00:00").replace("+0000", "+00:00"))
+
+
+def keep_last_week(stats):
+    """Ne garde que les publications des 7 derniers jours."""
+    since = datetime.now(timezone.utc) - timedelta(days=7)
+    for data in stats.values():
+        data["publications_semaine"] = [
+            p for p in data.pop("dernieres_publications", [])
+            if p.get("date") and _parse_date(p["date"]) >= since
+        ]
+    return stats
+
+
 def summarize(stats, previous, errors):
     prompt = f"""Tu es l'analyste réseaux sociaux de la chaîne gaming « Mickaz9 Gaming ».
-Rédige en français le rapport hebdomadaire, en Markdown compatible Discord (pas de tableaux), 3500 caractères max :
+Rédige en français le bilan de la semaine écoulée (7 derniers jours), en Markdown compatible Discord (pas de tableaux), 3500 caractères max :
 1. Chiffres clés par plateforme avec l'évolution depuis la semaine dernière (+X / -X)
-2. Top 3 des contenus de la semaine, toutes plateformes confondues
+2. Nombre de publications de la semaine par plateforme et top 3 des contenus, toutes plateformes confondues
 3. Tendances et points d'attention
 4. 3 conseils concrets pour la semaine prochaine
 
@@ -66,6 +83,7 @@ def send_discord(text):
 def main():
     history = load_history()
     stats, errors = collect_all()
+    stats = keep_last_week(stats)
     if not stats:
         raise SystemExit("Aucune plateforme configurée : renseigne les secrets (voir README).")
     previous = history[-1]["stats"] if history else None

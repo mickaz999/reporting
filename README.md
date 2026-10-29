@@ -1,8 +1,8 @@
 # Mickaz9 Gaming – Agent de reporting
 
-Chaque lundi, cet agent :
+Chaque dimanche soir, cet agent fait le bilan des 7 derniers jours :
 1. récupère les stats **YouTube, Twitch, TikTok et Instagram** ;
-2. les compare à la semaine précédente (historique dans `data/history.json`) ;
+2. ne garde que les publications de la semaine et compare les chiffres à la semaine précédente (historique dans `data/history.json`) ;
 3. demande à Claude de rédiger une analyse avec des conseils ;
 4. envoie le rapport sur **Discord**.
 
