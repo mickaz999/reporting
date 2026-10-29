@@ -2,6 +2,8 @@ import os
 
 import requests
 
+from ._common import MAX_PAGES, parse_date, since
+
 API = "https://www.googleapis.com/youtube/v3"
 
 
@@ -17,14 +19,24 @@ def collect():
     stats = ch["statistics"]
     uploads = ch["contentDetails"]["relatedPlaylists"]["uploads"]
 
-    items = requests.get(f"{API}/playlistItems", params={
-        "part": "contentDetails", "playlistId": uploads, "maxResults": 10, "key": key,
-    }, timeout=30).json().get("items", [])
-    ids = ",".join(i["contentDetails"]["videoId"] for i in items)
+    # La playlist des uploads est triée de la plus récente à la plus ancienne.
+    ids, page_token, limit = [], None, since()
+    for _ in range(MAX_PAGES):
+        r = requests.get(f"{API}/playlistItems", params={
+            "part": "contentDetails", "playlistId": uploads, "maxResults": 50,
+            "pageToken": page_token, "key": key,
+        }, timeout=30).json()
+        recent = [i for i in r.get("items", [])
+                  if parse_date(i["contentDetails"].get("videoPublishedAt", "1970-01-01T00:00:00Z")) >= limit]
+        ids += [i["contentDetails"]["videoId"] for i in recent]
+        page_token = r.get("nextPageToken")
+        if not page_token or len(recent) < len(r.get("items", [])):
+            break
+
     videos = []
-    if ids:
+    for start in range(0, len(ids), 50):  # l'API accepte 50 ids par appel
         for v in requests.get(f"{API}/videos", params={
-            "part": "snippet,statistics", "id": ids, "key": key,
+            "part": "snippet,statistics", "id": ",".join(ids[start:start + 50]), "key": key,
         }, timeout=30).json().get("items", []):
             s = v["statistics"]
             videos.append({

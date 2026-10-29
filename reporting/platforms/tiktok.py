@@ -2,6 +2,8 @@ import os
 
 import requests
 
+from ._common import MAX_PAGES, since
+
 API = "https://open.tiktokapis.com/v2"
 
 
@@ -25,9 +27,20 @@ def collect():
     user = requests.get(f"{API}/user/info/", params={
         "fields": "display_name,follower_count,following_count,likes_count,video_count",
     }, headers=h, timeout=30).json()["data"]["user"]
-    videos = requests.post(f"{API}/video/list/", params={
-        "fields": "title,create_time,view_count,like_count,comment_count,share_count,share_url",
-    }, json={"max_count": 10}, headers=h, timeout=30).json().get("data", {}).get("videos", [])
+    videos, cursor, limit = [], None, since().timestamp()
+    for _ in range(MAX_PAGES):
+        body = {"max_count": 20}
+        if cursor:
+            body["cursor"] = cursor
+        r = requests.post(f"{API}/video/list/", params={
+            "fields": "title,create_time,view_count,like_count,comment_count,share_count,share_url",
+        }, json=body, headers=h, timeout=30).json().get("data", {})
+        page = r.get("videos", [])
+        recent = [v for v in page if v.get("create_time", 0) >= limit]
+        videos += recent
+        cursor = r.get("cursor")
+        if not r.get("has_more") or len(recent) < len(page):
+            break
 
     return {
         "abonnes": user.get("follower_count", 0),

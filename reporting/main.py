@@ -2,13 +2,14 @@
 import json
 import os
 import traceback
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 
 import anthropic
 import requests
 
 from .platforms import COLLECTORS
+from .platforms._common import parse_date, since
 
 HISTORY = Path(__file__).resolve().parent.parent / "data" / "history.json"
 MODEL = os.getenv("CLAUDE_MODEL", "claude-opus-5-5")
@@ -31,19 +32,13 @@ def collect_all():
     return stats, errors
 
 
-def _parse_date(d):
-    if isinstance(d, (int, float)):  # TikTok renvoie un timestamp Unix
-        return datetime.fromtimestamp(d, timezone.utc)
-    return datetime.fromisoformat(d.replace("Z", "+00:00").replace("+0000", "+00:00"))
-
-
 def keep_last_week(stats):
     """Ne garde que les publications des 7 derniers jours."""
-    since = datetime.now(timezone.utc) - timedelta(days=7)
+    limit = since()
     for data in stats.values():
         data["publications_semaine"] = [
             p for p in data.pop("dernieres_publications", [])
-            if p.get("date") and _parse_date(p["date"]) >= since
+            if p.get("date") and parse_date(p["date"]) >= limit
         ]
     return stats
 
