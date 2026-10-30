@@ -206,5 +206,134 @@
         ]
       }
     }
+  },
+  {
+    "date": "2026-10-30T00:21:49.147381+00:00",
+    "stats": {
+      "YouTube": {
+        "abonnes": 3300,
+        "vues_totales": 4194867,
+        "nb_videos": 1667,
+        "publications_semaine": [
+          {
+            "titre": "Il est bon ou pas dans le clipping ? #mw4",
+            "date": "2026-10-29T22:39:29Z",
+            "vues": 904,
+            "likes": 5,
+            "commentaires": 0,
+            "lien": "https://youtu.be/rgQqbq2EbLs"
+          },
+          {
+            "titre": "J'ai poussé des français à bout ( ils pensent que je cheat )",
+            "date": "2026-10-26T17:44:44Z",
+            "vues": 64,
+            "likes": 4,
+            "commentaires": 2,
+            "lien": "https://youtu.be/fsDTdWCAaEU"
+          },
+          {
+            "titre": "Le trap les a poussé à bout #mw4 #callofduty",
+            "date": "2026-10-26T17:10:18Z",
+            "vues": 148,
+            "likes": 5,
+            "commentaires": 0,
+            "lien": "https://youtu.be/Whwt15VkqMM"
+          },
+          {
+            "titre": "Mon avis sur MW4 en tant que Clavier souris",
+            "date": "2026-10-24T15:45:11Z",
+            "vues": 435,
+            "likes": 3,
+            "commentaires": 0,
+            "lien": "https://youtu.be/iGjWwZAKwpA"
+          },
+          {
+            "titre": "TARGET SWITCHING MW4",
+            "date": "2026-10-23T23:25:20Z",
+            "vues": 664,
+            "likes": 3,
+            "commentaires": 2,
+            "lien": "https://youtu.be/bPrVRvpzwp4"
+          }
+        ]
+      },
+      "Twitch": {
+        "followers": 975,
+        "en_live": false,
+        "spectateurs_actuels": 0,
+        "publications_semaine": [
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-29T16:38:46Z",
+            "vues": 21,
+            "duree": "2h21m20s",
+            "lien": "https://www.twitch.tv/videos/2914036741"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-28T10:47:06Z",
+            "vues": 34,
+            "duree": "2h17m0s",
+            "lien": "https://www.twitch.tv/videos/2912954293"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-27T16:18:21Z",
+            "vues": 43,
+            "duree": "2h25m0s",
+            "lien": "https://www.twitch.tv/videos/2912259135"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-26T09:51:23Z",
+            "vues": 40,
+            "duree": "2h42m40s",
+            "lien": "https://www.twitch.tv/videos/2911195398"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-26T09:36:10Z",
+            "vues": 2,
+            "duree": "3m0s",
+            "lien": "https://www.twitch.tv/videos/2911190557"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-26T09:26:38Z",
+            "vues": 7,
+            "duree": "1m10s",
+            "lien": "https://www.twitch.tv/videos/2911187378"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-25T22:24:32Z",
+            "vues": 1,
+            "duree": "2m0s",
+            "lien": "https://www.twitch.tv/videos/2910854593"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-25T19:22:02Z",
+            "vues": 43,
+            "duree": "2h54m0s",
+            "lien": "https://www.twitch.tv/videos/2910707136"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-24T08:17:14Z",
+            "vues": 48,
+            "duree": "3h19m50s",
+            "lien": "https://www.twitch.tv/videos/2909293623"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-23T08:23:08Z",
+            "vues": 29,
+            "duree": "3h6m10s",
+            "lien": "https://www.twitch.tv/videos/2908355855"
+          }
+        ]
+      }
+    }
   }
 ]
