@@ -1,6 +1,6 @@
 [
   {
-    "date": "2026-10-30T00:23:38.049423+00:00",
+    "date": "2026-10-30T00:39:05.981462+00:00",
     "stats": {
       "YouTube": {
         "abonnes": 3300,
@@ -123,6 +123,36 @@
             "vues": 29,
             "duree": "3h6m10s",
             "lien": "https://www.twitch.tv/videos/2908355855"
+          }
+        ]
+      },
+      "Instagram": {
+        "abonnes": 53,
+        "nb_publications": 180,
+        "publications_semaine": [
+          {
+            "titre": "Alors il est bon ou pas ?",
+            "type": "VIDEO",
+            "date": "2026-10-29T22:58:29+0000",
+            "likes": 4,
+            "commentaires": 0,
+            "lien": "https://www.instagram.com/reel/DfGIj3quyyr/"
+          },
+          {
+            "titre": "Le coup du trap ils ont pas apprécié..",
+            "type": "VIDEO",
+            "date": "2026-10-26T17:15:26+0000",
+            "likes": 25,
+            "commentaires": 0,
+            "lien": "https://www.instagram.com/reel/De9y34aOupW/"
+          },
+          {
+            "titre": "LES SENSATIONS SONT LA",
+            "type": "VIDEO",
+            "date": "2026-10-23T23:53:40+0000",
+            "likes": 6,
+            "commentaires": 1,
+            "lien": "https://www.instagram.com/reel/De2yFwToj1h/"
           }
         ]
       }
