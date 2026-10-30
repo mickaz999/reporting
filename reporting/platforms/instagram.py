@@ -4,18 +4,20 @@ import requests
 
 from ._common import MAX_PAGES, parse_date, since
 
-API = "https://graph.facebook.com/v21.0"
-
-
 def collect():
     token = os.getenv("INSTAGRAM_ACCESS_TOKEN")
-    account = os.getenv("INSTAGRAM_ACCOUNT_ID")
-    if not (token and account):
+    if not token:
         return None
+    # Sans ID de compte : jeton « Instagram Login » (graph.instagram.com, pas besoin de Page Facebook)
+    account = os.getenv("INSTAGRAM_ACCOUNT_ID")
+    API = "https://graph.facebook.com/v21.0" if account else "https://graph.instagram.com/v21.0"
+    account = account or "me"
 
     me = requests.get(f"{API}/{account}", params={
         "fields": "username,followers_count,media_count", "access_token": token,
     }, timeout=30).json()
+    if "error" in me:
+        raise RuntimeError(me["error"].get("message", me["error"]))
     media, limit = [], since()
     url, params = f"{API}/{account}/media", {
         "fields": "caption,timestamp,like_count,comments_count,permalink,media_type",

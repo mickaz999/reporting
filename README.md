@@ -22,8 +22,8 @@ Une plateforme sans secrets est simplement ignorée : tu peux commencer avec You
 | `TWITCH_LOGIN` | ton pseudo Twitch |
 | `TIKTOK_CLIENT_KEY` / `TIKTOK_CLIENT_SECRET` | developers.tiktok.com → app avec *Login Kit*, scopes `user.info.basic`, `user.info.stats`, `video.list` |
 | `TIKTOK_REFRESH_TOKEN` | obtenu après t'être connecté une fois via l'OAuth TikTok (valable 1 an) |
-| `INSTAGRAM_ACCESS_TOKEN` | compte Instagram **Pro** relié à une Page Facebook, app Meta avec `instagram_basic` ; token longue durée (60 jours, à renouveler) |
-| `INSTAGRAM_ACCOUNT_ID` | ID du compte Instagram Business (via Graph API Explorer : `me/accounts?fields=instagram_business_account`) |
+| `INSTAGRAM_ACCESS_TOKEN` | compte Instagram **Pro** ; app Meta avec le cas d'usage « API Instagram » → *Configuration de l'API avec Instagram Login* → Générer un token (valable 60 jours, à renouveler) |
+| `INSTAGRAM_ACCOUNT_ID` (facultatif) | seulement si tu utilises un token Facebook (Page liée) au lieu du token Instagram Login |
 
 ## Lancer
 
