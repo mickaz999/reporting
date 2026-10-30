@@ -1,6 +1,6 @@
 [
   {
-    "date": "2026-10-30T00:39:05.981462+00:00",
+    "date": "2026-10-30T01:02:18.555212+00:00",
     "stats": {
       "YouTube": {
         "abonnes": 3300,
@@ -126,6 +126,40 @@
           }
         ]
       },
+      "TikTok": {
+        "abonnes": 2076,
+        "likes_totaux": 46610,
+        "nb_videos": 572,
+        "publications_semaine": [
+          {
+            "titre": "Il est bon pour clip ? ",
+            "date": 1793315067,
+            "vues": 188,
+            "likes": 14,
+            "commentaires": 0,
+            "partages": 0,
+            "lien": "https://www.tiktok.com/@mickaaz9/video/7702229548879957280?utm_campaign=tt4d_open_api&utm_source=sbawt07ro879fzajcv"
+          },
+          {
+            "titre": "Le trap les a poussé à bout",
+            "date": 1793034700,
+            "vues": 276,
+            "likes": 26,
+            "commentaires": 5,
+            "partages": 0,
+            "lien": "https://www.tiktok.com/@mickaaz9/video/7701025374649601302?utm_campaign=tt4d_open_api&utm_source=sbawt07ro879fzajcv"
+          },
+          {
+            "titre": "CETTE ANNEE ON VA SE REGALER ( J'ESPERE )",
+            "date": 1792797866,
+            "vues": 293,
+            "likes": 21,
+            "commentaires": 7,
+            "partages": 0,
+            "lien": "https://www.tiktok.com/@mickaaz9/video/7700008135204867350?utm_campaign=tt4d_open_api&utm_source=sbawt07ro879fzajcv"
+          }
+        ]
+      },
       "Instagram": {
         "abonnes": 53,
         "nb_publications": 180,
@@ -134,7 +168,7 @@
             "titre": "Alors il est bon ou pas ?",
             "type": "VIDEO",
             "date": "2026-10-29T22:58:29+0000",
-            "likes": 4,
+            "likes": 6,
             "commentaires": 0,
             "lien": "https://www.instagram.com/reel/DfGIj3quyyr/"
           },
