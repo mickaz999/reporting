@@ -1,0 +1,25 @@
+name: Diagnostic GitHub Models
+
+on: workflow_dispatch
+
+permissions:
+  models: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Appel brut
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for v in 2022-11-28 2026-03-10; do
+            echo "=== version $v ==="
+            curl -sS -i https://models.github.ai/inference/chat/completions \
+              -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: $v" -H "Content-Type: application/json" \
+              -d '{"model":"openai/gpt-4.1-mini","messages":[{"role":"user","content":"Dis bonjour"}]}' | head -c 1500
+            echo
+          done
+          echo "=== catalogue ==="
+          curl -sS -i https://models.github.ai/catalog/models -H "Authorization: Bearer $GH_TOKEN" | head -c 600
