@@ -43,7 +43,48 @@ def keep_last_week(stats):
     return stats
 
 
+LABELS = {
+    "abonnes": "Abonnés", "followers": "Followers", "vues_totales": "Vues totales",
+    "nb_videos": "Vidéos", "likes_totaux": "Likes totaux", "nb_publications": "Publications",
+}
+
+
+def basic_report(stats, previous, errors):
+    """Rapport sans IA (gratuit) : chiffres, évolution et top 3."""
+    previous = previous or {}
+    lines = ["# Chiffres clés"]
+    for name, data in stats.items():
+        lines.append(f"## {name}")
+        for key, label in LABELS.items():
+            if key not in data:
+                continue
+            old = previous.get(name, {}).get(key)
+            delta = f" ({data[key] - old:+,})".replace(",", " ") if old is not None else ""
+            lines.append(f"- {label} : {data[key]:,}{delta}".replace(",", " "))
+        if name == "Twitch" and data.get("en_live"):
+            lines.append(f"- 🔴 En live : {data['spectateurs_actuels']} spectateurs")
+        lines.append(f"- Publications cette semaine : {len(data['publications_semaine'])}")
+
+    posts = [(name, p) for name, data in stats.items() for p in data["publications_semaine"]]
+    score = lambda p: p.get("vues") or p.get("likes", 0)
+    lines.append("# Top 3 de la semaine")
+    if not posts:
+        lines.append("Aucune publication cette semaine.")
+    for name, p in sorted(posts, key=lambda x: score(x[1]), reverse=True)[:3]:
+        what = f"{p['vues']:,} vues" if p.get("vues") else f"{p.get('likes', 0):,} likes"
+        lines.append(f"- {name} · {p['titre'] or 'Sans titre'} · {what}".replace(",", " "))
+        if p.get("lien"):
+            lines.append(p["lien"])
+
+    if errors:
+        lines.append("# Plateformes en erreur")
+        lines += [f"- {name} : {msg}" for name, msg in errors.items()]
+    return "\n".join(lines)
+
+
 def summarize(stats, previous, errors):
+    if not os.getenv("ANTHROPIC_API_KEY"):
+        return basic_report(stats, previous, errors)
     prompt = f"""Tu es l'analyste réseaux sociaux de la chaîne gaming « Mickaz9 Gaming ».
 Rédige en français le bilan de la semaine écoulée (7 derniers jours), en Markdown compatible Discord (pas de tableaux), 3500 caractères max :
 1. Chiffres clés par plateforme avec l'évolution depuis la semaine dernière (+X / -X)
