@@ -1,17 +1,17 @@
 [
   {
-    "date": "2026-10-30T01:18:25.948692+00:00",
+    "date": "2026-10-30T14:03:09.939814+00:00",
     "stats": {
       "YouTube": {
         "abonnes": 3300,
-        "vues_totales": 4194867,
+        "vues_totales": 4194893,
         "nb_videos": 1667,
         "publications_semaine": [
           {
             "titre": "Il est bon ou pas dans le clipping ? #mw4",
             "date": "2026-10-29T22:39:29Z",
-            "vues": 904,
-            "likes": 5,
+            "vues": 1079,
+            "likes": 6,
             "commentaires": 0,
             "duree_s": 30,
             "format": "Short",
@@ -20,7 +20,7 @@
           {
             "titre": "J'ai poussé des français à bout ( ils pensent que je cheat )",
             "date": "2026-10-26T17:44:44Z",
-            "vues": 64,
+            "vues": 66,
             "likes": 4,
             "commentaires": 2,
             "duree_s": 437,
@@ -40,7 +40,7 @@
           {
             "titre": "Mon avis sur MW4 en tant que Clavier souris",
             "date": "2026-10-24T15:45:11Z",
-            "vues": 435,
+            "vues": 446,
             "likes": 3,
             "commentaires": 0,
             "duree_s": 399,
@@ -64,6 +64,20 @@
         "en_live": false,
         "spectateurs_actuels": 0,
         "publications_semaine": [
+          {
+            "titre": "GRIND CAMO en détente",
+            "date": "2026-10-30T11:28:34Z",
+            "vues": 1,
+            "duree": "34m40s",
+            "lien": "https://www.twitch.tv/videos/2914736752"
+          },
+          {
+            "titre": "GRIND CAMO en détente",
+            "date": "2026-10-30T08:56:05Z",
+            "vues": 1,
+            "duree": "2h23m29s",
+            "lien": "https://www.twitch.tv/videos/2914679924"
+          },
           {
             "titre": "MW4 LE  JEU DE L'ANNEE ??",
             "date": "2026-10-29T16:38:46Z",
@@ -126,34 +140,27 @@
             "vues": 48,
             "duree": "3h19m50s",
             "lien": "https://www.twitch.tv/videos/2909293623"
-          },
-          {
-            "titre": "MW4 LE  JEU DE L'ANNEE ??",
-            "date": "2026-10-23T08:23:08Z",
-            "vues": 29,
-            "duree": "3h6m10s",
-            "lien": "https://www.twitch.tv/videos/2908355855"
           }
         ]
       },
       "TikTok": {
-        "abonnes": 2076,
-        "likes_totaux": 46611,
+        "abonnes": 2077,
+        "likes_totaux": 46618,
         "nb_videos": 572,
         "publications_semaine": [
           {
             "titre": "Il est bon pour clip ? ",
             "date": 1793315067,
-            "vues": 198,
-            "likes": 14,
-            "commentaires": 0,
+            "vues": 371,
+            "likes": 21,
+            "commentaires": 1,
             "partages": 0,
             "lien": "https://www.tiktok.com/@mickaaz9/video/7702229548879957280?utm_campaign=tt4d_open_api&utm_source=sbawt07ro879fzajcv"
           },
           {
             "titre": "Le trap les a poussé à bout",
             "date": 1793034700,
-            "vues": 277,
+            "vues": 286,
             "likes": 27,
             "commentaires": 5,
             "partages": 0,
@@ -162,7 +169,7 @@
           {
             "titre": "CETTE ANNEE ON VA SE REGALER ( J'ESPERE )",
             "date": 1792797866,
-            "vues": 293,
+            "vues": 296,
             "likes": 21,
             "commentaires": 7,
             "partages": 0,
@@ -179,7 +186,7 @@
             "titre": "Alors il est bon ou pas ?",
             "type": "VIDEO",
             "date": "2026-10-29T22:58:29+0000",
-            "likes": 7,
+            "likes": 15,
             "commentaires": 0,
             "lien": "https://www.instagram.com/reel/DfGIj3quyyr/"
           },
