@@ -8,10 +8,11 @@ def collect():
     token = os.getenv("INSTAGRAM_ACCESS_TOKEN")
     if not token:
         return None
-    # Sans ID de compte : jeton « Instagram Login » (graph.instagram.com, pas besoin de Page Facebook)
-    account = os.getenv("INSTAGRAM_ACCOUNT_ID")
-    API = "https://graph.facebook.com/v21.0" if account else "https://graph.instagram.com/v21.0"
-    account = account or "me"
+    # Jeton Instagram (« IG… ») : graph.instagram.com sur « me » ; jeton Facebook (« EAA… ») : graph.facebook.com + ID du compte
+    if token.startswith("IG") or not os.getenv("INSTAGRAM_ACCOUNT_ID"):
+        API, account = "https://graph.instagram.com/v21.0", "me"
+    else:
+        API, account = "https://graph.facebook.com/v21.0", os.environ["INSTAGRAM_ACCOUNT_ID"]
 
     me = requests.get(f"{API}/{account}", params={
         "fields": "username,followers_count,media_count", "access_token": token,
