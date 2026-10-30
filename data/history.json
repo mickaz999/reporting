@@ -102,5 +102,57 @@
         ]
       }
     }
+  },
+  {
+    "date": "2026-10-30T00:15:32.190586+00:00",
+    "stats": {
+      "YouTube": {
+        "abonnes": 3300,
+        "vues_totales": 4194867,
+        "nb_videos": 1667,
+        "publications_semaine": [
+          {
+            "titre": "Il est bon ou pas dans le clipping ? #mw4",
+            "date": "2026-10-29T22:39:29Z",
+            "vues": 904,
+            "likes": 5,
+            "commentaires": 0,
+            "lien": "https://youtu.be/rgQqbq2EbLs"
+          },
+          {
+            "titre": "J'ai poussé des français à bout ( ils pensent que je cheat )",
+            "date": "2026-10-26T17:44:44Z",
+            "vues": 64,
+            "likes": 4,
+            "commentaires": 2,
+            "lien": "https://youtu.be/fsDTdWCAaEU"
+          },
+          {
+            "titre": "Le trap les a poussé à bout #mw4 #callofduty",
+            "date": "2026-10-26T17:10:18Z",
+            "vues": 148,
+            "likes": 5,
+            "commentaires": 0,
+            "lien": "https://youtu.be/Whwt15VkqMM"
+          },
+          {
+            "titre": "Mon avis sur MW4 en tant que Clavier souris",
+            "date": "2026-10-24T15:45:11Z",
+            "vues": 435,
+            "likes": 3,
+            "commentaires": 0,
+            "lien": "https://youtu.be/iGjWwZAKwpA"
+          },
+          {
+            "titre": "TARGET SWITCHING MW4",
+            "date": "2026-10-23T23:25:20Z",
+            "vues": 664,
+            "likes": 3,
+            "commentaires": 2,
+            "lien": "https://youtu.be/bPrVRvpzwp4"
+          }
+        ]
+      }
+    }
   }
 ]
