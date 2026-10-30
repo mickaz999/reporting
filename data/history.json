@@ -1,6 +1,6 @@
 [
   {
-    "date": "2026-10-30T01:02:18.555212+00:00",
+    "date": "2026-10-30T01:18:25.948692+00:00",
     "stats": {
       "YouTube": {
         "abonnes": 3300,
@@ -13,6 +13,8 @@
             "vues": 904,
             "likes": 5,
             "commentaires": 0,
+            "duree_s": 30,
+            "format": "Short",
             "lien": "https://youtu.be/rgQqbq2EbLs"
           },
           {
@@ -21,6 +23,8 @@
             "vues": 64,
             "likes": 4,
             "commentaires": 2,
+            "duree_s": 437,
+            "format": "Vidéo",
             "lien": "https://youtu.be/fsDTdWCAaEU"
           },
           {
@@ -29,6 +33,8 @@
             "vues": 148,
             "likes": 5,
             "commentaires": 0,
+            "duree_s": 56,
+            "format": "Short",
             "lien": "https://youtu.be/Whwt15VkqMM"
           },
           {
@@ -37,6 +43,8 @@
             "vues": 435,
             "likes": 3,
             "commentaires": 0,
+            "duree_s": 399,
+            "format": "Vidéo",
             "lien": "https://youtu.be/iGjWwZAKwpA"
           },
           {
@@ -45,6 +53,8 @@
             "vues": 664,
             "likes": 3,
             "commentaires": 2,
+            "duree_s": 25,
+            "format": "Short",
             "lien": "https://youtu.be/bPrVRvpzwp4"
           }
         ]
@@ -128,13 +138,13 @@
       },
       "TikTok": {
         "abonnes": 2076,
-        "likes_totaux": 46610,
+        "likes_totaux": 46611,
         "nb_videos": 572,
         "publications_semaine": [
           {
             "titre": "Il est bon pour clip ? ",
             "date": 1793315067,
-            "vues": 188,
+            "vues": 198,
             "likes": 14,
             "commentaires": 0,
             "partages": 0,
@@ -143,8 +153,8 @@
           {
             "titre": "Le trap les a poussé à bout",
             "date": 1793034700,
-            "vues": 276,
-            "likes": 26,
+            "vues": 277,
+            "likes": 27,
             "commentaires": 5,
             "partages": 0,
             "lien": "https://www.tiktok.com/@mickaaz9/video/7701025374649601302?utm_campaign=tt4d_open_api&utm_source=sbawt07ro879fzajcv"
@@ -161,6 +171,7 @@
         ]
       },
       "Instagram": {
+        "insights": "indisponibles (ajoute l'autorisation insights sur l'app Meta)",
         "abonnes": 53,
         "nb_publications": 180,
         "publications_semaine": [
@@ -168,7 +179,7 @@
             "titre": "Alors il est bon ou pas ?",
             "type": "VIDEO",
             "date": "2026-10-29T22:58:29+0000",
-            "likes": 6,
+            "likes": 7,
             "commentaires": 0,
             "lien": "https://www.instagram.com/reel/DfGIj3quyyr/"
           },
