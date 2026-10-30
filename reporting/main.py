@@ -1,6 +1,7 @@
 """Agent de reporting hebdomadaire pour Mickaz9 Gaming."""
 import json
 import os
+import re
 import traceback
 from datetime import datetime, timezone
 from pathlib import Path
@@ -52,6 +53,16 @@ LABELS = {
 }
 
 
+def _seconds(duree):
+    """Durée Twitch (« 3h2m10s ») en secondes."""
+    return sum(int(n) * {"h": 3600, "m": 60, "s": 1}[u] for n, u in re.findall(r"(\d+)([hms])", duree))
+
+
+def _human(duree):
+    t = _seconds(duree)
+    return f"{t // 3600} h {t % 3600 // 60:02d}" if t >= 3600 else f"{t // 60} min"
+
+
 def basic_report(stats, previous, errors):
     """Rapport sans IA (gratuit) : chiffres, évolution et top 3."""
     previous = previous or {}
@@ -66,11 +77,19 @@ def basic_report(stats, previous, errors):
             lines.append(f"- {label} : {data[key]:,}{delta}".replace(",", " "))
         if name == "Twitch" and data.get("en_live"):
             lines.append(f"- 🔴 En live : {data['spectateurs_actuels']} spectateurs")
-        lines.append(f"- Publications cette semaine : {len(data['publications_semaine'])}")
+        if name == "Twitch":
+            lives = data["publications_semaine"]
+            lines.append(f"- Lives cette semaine : {len(lives)}")
+            if lives:
+                total = sum(_seconds(v.get("duree", "")) for v in lives)
+                lines.append(f"- Temps de stream : {total // 3600} h {total % 3600 // 60:02d}")
+                lines.append(f"- Vues des rediffusions : {sum(v['vues'] for v in lives):,}".replace(",", " "))
+        else:
+            lines.append(f"- Publications cette semaine : {len(data['publications_semaine'])}")
 
-    posts = [(name, p) for name, data in stats.items() for p in data["publications_semaine"]]
+    posts = [(name, p) for name, data in stats.items() if name != "Twitch" for p in data["publications_semaine"]]
     score = lambda p: p.get("vues") or p.get("likes", 0)
-    lines.append("# Top 3 de la semaine")
+    lines.append("# Top 3 des vidéos et publications")
     if not posts:
         lines.append("Aucune publication cette semaine.")
     for name, p in sorted(posts, key=lambda x: score(x[1]), reverse=True)[:3]:
@@ -78,6 +97,13 @@ def basic_report(stats, previous, errors):
         lines.append(f"- {name} · {p['titre'] or 'Sans titre'} · {what}".replace(",", " "))
         if p.get("lien"):
             lines.append(p["lien"])
+
+    lives = stats.get("Twitch", {}).get("publications_semaine", [])
+    if lives:
+        best = max(lives, key=lambda v: v["vues"])
+        lines.append("# Meilleur live Twitch")
+        lines.append(f"- {best['titre'] or 'Sans titre'} · live de {_human(best.get('duree', ''))} · {best['vues']:,} vues en rediff".replace(",", " "))
+        lines.append(best["lien"])
 
     if errors:
         lines.append("# Plateformes en erreur")
@@ -108,6 +134,9 @@ Rédige en français le bilan de la semaine écoulée (7 derniers jours), en Mar
 2. Nombre de publications de la semaine par plateforme et top 3 des contenus, toutes plateformes confondues
 3. Tendances et points d'attention
 4. 3 conseils concrets pour la semaine prochaine
+
+Vocabulaire : sur Twitch, parle de lives, de followers, de temps de stream et de vues des rediffusions (VOD) ;
+« publications_semaine » de Twitch = les lives de la semaine. Sur YouTube, TikTok et Instagram, parle de vidéos / publications et d'abonnés.
 
 Stats actuelles : {json.dumps(stats, ensure_ascii=False)}
 Stats de la semaine dernière : {json.dumps(previous, ensure_ascii=False) if previous else "aucune (premier rapport)"}
@@ -157,14 +186,19 @@ def main():
     stats = keep_last_week(stats)
     if not stats:
         raise SystemExit("Aucune plateforme configurée : renseigne les secrets (voir README).")
-    previous = history[-1]["stats"] if history else None
+    today = datetime.now(timezone.utc).date().isoformat()
+    older = [h for h in history if h["date"][:10] != today]
+    previous = older[-1]["stats"] if older else None
     report = summarize(stats, previous, errors)
     sent_maderino = send_maderino(f"Rapport du {datetime.now():%d/%m/%Y}", report)
     sent_discord = send_discord(report)
     if not (sent_maderino or sent_discord):
         print(report)
 
-    history.append({"date": datetime.now(timezone.utc).isoformat(), "stats": stats})
+    now = datetime.now(timezone.utc)
+    # Un seul point par jour : un relancement manuel remplace celui du jour
+    history = [h for h in history if h["date"][:10] != now.date().isoformat()]
+    history.append({"date": now.isoformat(), "stats": stats})
     HISTORY.parent.mkdir(exist_ok=True)
     HISTORY.write_text(json.dumps(history[-52:], ensure_ascii=False, indent=2))
 
