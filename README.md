@@ -12,7 +12,7 @@ Une plateforme sans secrets est simplement ignorée : tu peux commencer avec You
 
 | Secret | Où l'obtenir |
 |---|---|
-| `ANTHROPIC_API_KEY` (facultatif) | console.anthropic.com — sans elle, rapport gratuit avec chiffres et top 3, sans analyse ni conseils |
+| `ANTHROPIC_API_KEY` (facultatif) | console.anthropic.com — sans elle, l'analyse est rédigée gratuitement par l'IA de GitHub (GitHub Models) |
 | `MADERINO_URL` | adresse de ton app maderino sur Vercel (ex. `https://mon-app.vercel.app`) |
 | `MADERINO_REPORT_SECRET` | même valeur que la variable `REPORT_SECRET` ajoutée dans Vercel |
 | `DISCORD_WEBHOOK_URL` (facultatif) | Salon Discord → Modifier → Intégrations → Webhooks |
