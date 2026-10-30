@@ -5,9 +5,12 @@ import traceback
 from datetime import datetime, timezone
 from pathlib import Path
 
+import base64
+
 import anthropic
 import requests
 
+from .pdf import build_pdf
 from .platforms import COLLECTORS
 from .platforms._common import parse_date, since
 
@@ -86,11 +89,15 @@ def github_models(prompt):
     """IA gratuite incluse dans GitHub Actions (GitHub Models, avec le jeton GITHUB_TOKEN)."""
     r = requests.post("https://models.github.ai/inference/chat/completions", headers={
         "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        "Content-Type": "application/json",
     }, json={
         "model": os.getenv("GITHUB_MODEL", "openai/gpt-4.1-mini"),
         "messages": [{"role": "user", "content": prompt}],
     }, timeout=120)
-    r.raise_for_status()
+    if not r.ok or "json" not in r.headers.get("content-type", ""):
+        raise RuntimeError(f"GitHub Models {r.status_code} : {r.text[:300]}")
     return r.json()["choices"][0]["message"]["content"]
 
 
@@ -123,7 +130,8 @@ def send_maderino(title, text):
     url, secret = os.getenv("MADERINO_URL"), os.getenv("MADERINO_REPORT_SECRET")
     if not (url and secret):
         return False
-    requests.post(f"{url.rstrip('/')}/api/report", json={"title": title, "markdown": text},
+    pdf = base64.b64encode(build_pdf(title, text)).decode()
+    requests.post(f"{url.rstrip('/')}/api/report", json={"title": title, "markdown": text, "pdf": pdf},
                   headers={"Authorization": f"Bearer {secret}"}, timeout=30).raise_for_status()
     return True
 
