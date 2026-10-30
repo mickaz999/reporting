@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  models: read  # IA gratuite GitHub Models
 
 jobs:
   report:
@@ -20,7 +19,6 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python -m reporting.main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           MADERINO_URL: ${{ secrets.MADERINO_URL }}
