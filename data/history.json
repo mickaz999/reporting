@@ -209,5 +209,216 @@
         ]
       }
     }
+  },
+  {
+    "date": "2026-11-01T18:55:35.555158+00:00",
+    "stats": {
+      "YouTube": {
+        "abonnes": 3300,
+        "vues_totales": 4196435,
+        "nb_videos": 1669,
+        "publications_semaine": [
+          {
+            "titre": "C'est un Point positif non ?",
+            "date": "2026-11-01T12:52:31Z",
+            "vues": 1034,
+            "likes": 6,
+            "commentaires": 0,
+            "duree_s": 32,
+            "format": "Short",
+            "lien": "https://youtu.be/niX-j7J7GvY"
+          },
+          {
+            "titre": "Les meilleurs settings clavier souris pour mw4 ! ( + FPS et - INPUT LAG )",
+            "date": "2026-10-30T23:16:10Z",
+            "vues": 163,
+            "likes": 5,
+            "commentaires": 2,
+            "duree_s": 1096,
+            "format": "Vidéo",
+            "lien": "https://youtu.be/J_93NQjNb04"
+          },
+          {
+            "titre": "Il est bon ou pas dans le clipping ? #mw4",
+            "date": "2026-10-29T22:39:29Z",
+            "vues": 1314,
+            "likes": 7,
+            "commentaires": 0,
+            "duree_s": 30,
+            "format": "Short",
+            "lien": "https://youtu.be/rgQqbq2EbLs"
+          },
+          {
+            "titre": "J'ai poussé des français à bout ( ils pensent que je cheat )",
+            "date": "2026-10-26T17:44:44Z",
+            "vues": 79,
+            "likes": 4,
+            "commentaires": 2,
+            "duree_s": 437,
+            "format": "Vidéo",
+            "lien": "https://youtu.be/fsDTdWCAaEU"
+          },
+          {
+            "titre": "Le trap les a poussé à bout #mw4 #callofduty",
+            "date": "2026-10-26T17:10:18Z",
+            "vues": 152,
+            "likes": 5,
+            "commentaires": 0,
+            "duree_s": 56,
+            "format": "Short",
+            "lien": "https://youtu.be/Whwt15VkqMM"
+          }
+        ]
+      },
+      "Twitch": {
+        "followers": 976,
+        "en_live": false,
+        "spectateurs_actuels": 0,
+        "publications_semaine": [
+          {
+            "titre": "GRIND CAMO en détente",
+            "date": "2026-11-01T14:24:59Z",
+            "vues": 0,
+            "duree": "3h22m40s",
+            "lien": "https://www.twitch.tv/videos/2916702005"
+          },
+          {
+            "titre": "GRIND CAMO en détente",
+            "date": "2026-10-30T11:28:34Z",
+            "vues": 19,
+            "duree": "34m40s",
+            "lien": "https://www.twitch.tv/videos/2914736752"
+          },
+          {
+            "titre": "GRIND CAMO en détente",
+            "date": "2026-10-30T08:56:05Z",
+            "vues": 24,
+            "duree": "2h23m29s",
+            "lien": "https://www.twitch.tv/videos/2914679924"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-29T16:38:46Z",
+            "vues": 21,
+            "duree": "2h21m20s",
+            "lien": "https://www.twitch.tv/videos/2914036741"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-28T10:47:06Z",
+            "vues": 34,
+            "duree": "2h17m0s",
+            "lien": "https://www.twitch.tv/videos/2912954293"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-27T16:18:21Z",
+            "vues": 43,
+            "duree": "2h25m0s",
+            "lien": "https://www.twitch.tv/videos/2912259135"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-26T09:51:23Z",
+            "vues": 40,
+            "duree": "2h42m40s",
+            "lien": "https://www.twitch.tv/videos/2911195398"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-26T09:36:10Z",
+            "vues": 2,
+            "duree": "3m0s",
+            "lien": "https://www.twitch.tv/videos/2911190557"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-26T09:26:38Z",
+            "vues": 7,
+            "duree": "1m10s",
+            "lien": "https://www.twitch.tv/videos/2911187378"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-25T22:24:32Z",
+            "vues": 1,
+            "duree": "2m0s",
+            "lien": "https://www.twitch.tv/videos/2910854593"
+          },
+          {
+            "titre": "MW4 LE  JEU DE L'ANNEE ??",
+            "date": "2026-10-25T19:22:02Z",
+            "vues": 43,
+            "duree": "2h54m0s",
+            "lien": "https://www.twitch.tv/videos/2910707136"
+          }
+        ]
+      },
+      "TikTok": {
+        "abonnes": 2081,
+        "likes_totaux": 46660,
+        "nb_videos": 573,
+        "publications_semaine": [
+          {
+            "titre": "70 dolls pour avoir un aim trainer inclus",
+            "date": 1793537625,
+            "vues": 327,
+            "likes": 31,
+            "commentaires": 0,
+            "partages": 0,
+            "lien": "https://www.tiktok.com/@mickaaz9/video/7703185427288558881?utm_campaign=tt4d_open_api&utm_source=sbawt07ro879fzajcv"
+          },
+          {
+            "titre": "Il est bon pour clip ? ",
+            "date": 1793315067,
+            "vues": 404,
+            "likes": 26,
+            "commentaires": 4,
+            "partages": 0,
+            "lien": "https://www.tiktok.com/@mickaaz9/video/7702229548879957280?utm_campaign=tt4d_open_api&utm_source=sbawt07ro879fzajcv"
+          },
+          {
+            "titre": "Le trap les a poussé à bout",
+            "date": 1793034700,
+            "vues": 293,
+            "likes": 27,
+            "commentaires": 5,
+            "partages": 0,
+            "lien": "https://www.tiktok.com/@mickaaz9/video/7701025374649601302?utm_campaign=tt4d_open_api&utm_source=sbawt07ro879fzajcv"
+          }
+        ]
+      },
+      "Instagram": {
+        "insights": "indisponibles (ajoute l'autorisation insights sur l'app Meta)",
+        "abonnes": 53,
+        "nb_publications": 181,
+        "publications_semaine": [
+          {
+            "titre": "C'est un point positif non ?",
+            "type": "VIDEO",
+            "date": "2026-11-01T13:01:08+0000",
+            "likes": 10,
+            "commentaires": 0,
+            "lien": "https://www.instagram.com/reel/DfMyjyAO-vQ/"
+          },
+          {
+            "titre": "Alors il est bon ou pas ?",
+            "type": "VIDEO",
+            "date": "2026-10-29T22:58:29+0000",
+            "likes": 22,
+            "commentaires": 0,
+            "lien": "https://www.instagram.com/reel/DfGIj3quyyr/"
+          },
+          {
+            "titre": "Le coup du trap ils ont pas apprécié..",
+            "type": "VIDEO",
+            "date": "2026-10-26T17:15:26+0000",
+            "likes": 25,
+            "commentaires": 0,
+            "lien": "https://www.instagram.com/reel/De9y34aOupW/"
+          }
+        ]
+      }
+    }
   }
 ]
